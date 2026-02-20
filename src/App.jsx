@@ -66,6 +66,7 @@ function App() {
     return (
         <div className="py-4 py-sm-5">
             <div className="container">
+            <h1 className="text-light text-center">Countries Explorer</h1>
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
                 <SelectRegion title='Filter by Region...'>

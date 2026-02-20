@@ -175,6 +175,7 @@ body {
     justify-content: flex-start;
 }
 .select-region-card  {
+    margin: 15px;
     min-width: 180px;  
     max-width: 220px;  
     width: auto;       
