@@ -15,7 +15,7 @@ export default function CountriesList({ countries, loading, error, onRetry }) {
   return (
     <div className="row g-3 g-md-4">
       {countries.map((country) => (
-        <div className="col-12 col-sm-6 col-lg-3" key={country.cca3}>
+        <div className="col-12 col-sm-6 col-lg-3" key={country.cca3 ?? country.name?.common ?? Math.random()}>
           <CountriesCard country={country}/>
         </div>
       ))}
