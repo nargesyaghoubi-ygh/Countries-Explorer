@@ -45,8 +45,8 @@ This project uses the following API:
     <tr align="center">
       <td align="center">
         <h3>Home Screenshot</h3>
-        <a href="https://github.com/nargesyaghoubi-ygh/Countries-Explorer/blob/main/Screenshots/home.png">
-          <img src="https://github.com/nargesyaghoubi-ygh/Countries-Explorer/blob/main/Screenshots/home.png?raw=true" height="400px">
+        <a href="https://github.com/nargesyaghoubi-ygh/Countries-Explorer/blob/main/Screenshots/home-.png">
+          <img src="https://github.com/nargesyaghoubi-ygh/Countries-Explorer/blob/main/Screenshots/home-.png?raw=true" height="400px">
         </a>
       </td>
        <td align="center">
