@@ -14,12 +14,12 @@ function App() {
     const [retry, setRetry] = useState(0);
 
     const trimmedText = searchTerm.trim();
-    function handleRetry(){
+    function handleRetry() {
         setRetry(prev => prev + 1)
     }
- 
+
     useEffect(() => {
-       
+
         const controller = new AbortController();
         async function fetchCountries() {
             try {
@@ -27,13 +27,14 @@ function App() {
                 setError(null);
 
                 let url = API;
-                console.log("url:", url);
-                console.log("countries:", countries);
 
                 if (trimmedText.length >= 2) {
                     url = `https://restcountries.com/v3.1/name/${encodeURIComponent(trimmedText)}`;
                 } else if (region !== "all") {
                     url = `https://restcountries.com/v3.1/region/${region}`;
+                }
+                else {
+                    url = `https://restcountries.com/v3.1/all?fields=name,flags,region,population`;
                 }
 
                 const res = await fetch(url, { signal: controller.signal });
@@ -41,7 +42,7 @@ function App() {
                 const data = await res.json();
 
                 if (!Array.isArray(data) && data.length) {
-        
+
                     setCountries(data);
                 } else {
                     setCountries([]);
@@ -60,13 +61,13 @@ function App() {
 
         fetchCountries();
         return () => controller.abort();
-    }, [searchTerm, region, retry]);
+    }, [trimmedText, region, retry]);
 
 
     return (
         <div className="py-4 py-sm-5">
             <div className="container">
-            <h1 className="text-light text-center">Countries Explorer</h1>
+                <h1 className="text-light text-center">Countries Explorer</h1>
                 <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
                 <SelectRegion title='Filter by Region...'>
@@ -80,11 +81,11 @@ function App() {
 
                     </select>
                 </SelectRegion>
-                
+
 
             </div>
             <CountriesList countries={countries} loading={loading} error={error} onRetry={handleRetry}></CountriesList>
-            
+
         </div>
 
     )
